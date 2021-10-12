@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>Hoa Don</title>
+  </head>
+  <script>
+    $(document).ready(function () {
+      var Tong = 0;
+      var Array = JSON.parse(sessionStorage.getItem("Bill4"));
+      $("#ten").html(Array.Ten);
+      $("#Ngay").html(Array.NgayDat);
+      $("#phim").html(Array.Phim);
+      $("#xuatchieu").html(Array.SuatChieu);
+      $("#phongchieu").html(Array.PhongchieuText);
+
+      html = `<tr class="bold">
+    <td><p>Ghế</p></td>
+    <td><p>Giá Vé</p></td>
+  </tr>`;
+      Array.ListCho.map((item) => {
+        Tong += Array.PhongchieuGia * Array.SuatChieuVal*1000;
+        html += `
+        <tr>
+        <td>${item.TenCho}</td>
+        <td>${(Array.PhongchieuGia * Array.SuatChieuVal*1000).toLocaleString()}</td>
+      </tr>`;
+      });
+      html += `<tr class="bold">
+    <td>Tổng tiền</td>
+    <td id="tongtien">${Tong.toLocaleString()}</td>
+  </tr>`;
+
+      $("#tableRoot").html(html);
+    });
+  </script>
+  <style>
+    #root {
+      width: 50%;
+      margin: 0 auto;
+      border: 1px solid black;
+      box-sizing: border-box;
+      padding: 20px;
+    }
+    .text_center {
+      text-align: center;
+      display: block;
+    }
+    .bold {
+      font-weight: bold;
+    }
+  </style>
+  <body>
+    <div id="root">
+      <b class="text_center">Hóa đơn</b>
+      <p>Tên khách hàng : <span id="ten"></span></p>
+      <p>Ngày Chiếu : <span id="Ngay"></span></p>
+      <p>Phim : <span id="phim"></span></p>
+      <p>Xuất chiếu : <span id="xuatchieu"></span></p>
+      <p>Phòng chiếu : <span id="phongchieu"></span></p>
+      <table id="tableRoot" style="width: 80%; margin: 0 auto"></table>
+    </div>
+  </body>
+</html>

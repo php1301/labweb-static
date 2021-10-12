@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>Cau 5</title>
+    <script>
+      function TinhTien(Tong) {
+        Tong.Giatri = 0;
+        for (var i = 0; i < $(".thanhtien").length; i++) {
+          var temp = $(".giatri")[i].value * 1 * $(".SL")[i].value;
+          $(".thanhtien")[i].innerHTML = temp;
+          Tong.Giatri += temp;
+          $("#sumbill").text(Tong.Giatri);
+        }
+      }
+      $(document).ready(function () {
+        var Tong = { Giatri: 0 };
+        TinhTien(Tong);
+        $(".SL").change(function () {
+          TinhTien(Tong);
+        });
+        $(".giatri").change(function () {
+          TinhTien(Tong);
+        });
+        $(".delete").on("click", function () {
+          var Thantien = $(this).parent().parent().parent().children(".thanhtien");
+          Tong.Giatri = Tong.Giatri - Thantien.text();
+          $("#sumbill").text(Tong.Giatri);
+          $(this).parent().parent().parent().remove();
+        });
+      });
+    </script>
+  </head>
+  <style>
+    table,
+    td,
+    tr {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+  </style>
+  <body>
+    <table>
+      <tr>
+        <td>Sản phẩm</td>
+        <td>Số lượng</td>
+        <td>Đơn giá</td>
+        <td>Thành tiền</td>
+        <td>Chức năng</td>
+      </tr>
+      <tr>
+        <td>Iphone 11 Pro Max 64G</td>
+        <td><input type="number" value="2" name="" class="SL" /></td>
+        <td><input type="text" value="31000000" name="" class="giatri" /></td>
+        <td class="thanhtien"></td>
+        <td>
+          <p>
+            <button class="delete">Xóa</button>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td>Samsung Galaxy Note 10+</td>
+        <td><input type="number" value="1" name="" class="SL" /></td>
+        <td><input type="text" value="16000000" name="" class="giatri" /></td>
+        <td class="thanhtien"></td>
+        <td>
+          <p>
+            <button class="delete">Xóa</button>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3">Tổng tiền</td>
+        <td colspan="2" id="sumbill"></td>
+      </tr>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="cau1.js"></script>
+    <title>Cau1</title>
+  </head>
+  <body>
+    <form action="javascipt:void(0)">
+      <table border>
+        <tr>
+          <td>
+            Lương
+          </td>
+          <td>
+            <input type="text"id="luong" />
+          </td>
+        </tr>
+        <tr>
+          <td>Hệ số lương</td>
+          <td>
+            <input type="number"  style="width: 50px;" id="heso" min="0" step="0.1"/>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3" style="text-align: center;">
+            <button id="tinhluong">Tính lương tháng</button>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Lương tháng</td>
+          <td class="outp"></td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>

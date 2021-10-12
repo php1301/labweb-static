@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="cau2.js"></script>
+    <style>
+      form {
+        width: 80%;
+        margin: 50px auto;
+        text-align: center;
+        background-color: rgb(241, 241, 241);
+      }
+      table{
+        width: 100%;
+      }
+    </style>
+    <script>
+   
+    </script>
+    <title>Cau 2</title>
+  </head>
+  <body>
+    <form action="javascipt:void(0)">
+      <h1>THỰC ĐƠN</h1>
+      <table border>
+        <tr>
+          <td>Thức ăn</td>
+          <td>Nước uống</td>
+          <td>Thời điểm</td>
+        </tr>
+        <tr>
+          <td>
+            <select class="choose" id="food" name="food" size="7" multiple>
+              <option value="bunbo">Bún bò</option>
+              <option value="hutieu">Hủ tiếu</option>
+              <option value="banhcanh">Bánh canh</option>
+              <option value="phobo">Phở bò</option>
+              <option value="nuoi">Nuôi</option>
+              <option value="banhmi">Bánh mì thịt</option>
+              <option value="banhcuon">Bánh cuốn</option></select
+            ><br /><br />
+          </td>
+          <td>
+            <select class="choose" id="nuoc" name="nuoc" size="7" multiple>
+              <option value="cafe1">Cafe đá</option>
+              <option value="cafe2">Cafe sữa đá</option>
+              <option value="chanhday">Chanh dây</option>
+              <option value="chanhmuoi">Chanh muối</option>
+              <option value="ximuoi">Xí muội</option>
+              <option value="suatuoi">Sữa tươi</option>
+              <option value="camvat">Cam vắt</option></select
+            ><br /><br />
+          </td>
+          <td>
+            <input type="radio" class="chonbuoi" name="buoi" value="1" checked />
+            <label for="html">Ban ngày</label><br />
+            <input type="radio" class="chonbuoi" name="buoi" value="1.1" />
+            <label for="html">Ban đêm</label><br />
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3"><button id="tinhtien">Tính tiền</button></td>
+        </tr>
+        <tr>
+          <td colspan="3" id="text"></td>
+        </tr>
+      </table>
+      <table id="hoadon" border>
+        <tr>
+          <td>Các món đã dùng</td>
+          <td>Tiền</td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>

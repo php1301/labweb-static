@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="cau3.js"></script>
+    <link rel="stylesheet" href="cau3.css">
+    <title>Cau 3</title>
+  </head>
+  <body>
+    <table class="Table__Choose">
+      <tr class="text__bold color__blue">
+        <td colspan="2" id="time"></td>
+        <td>Nhân viên: Nguyễn Văn A</td>
+      </tr>
+      <tr>
+        <td colspan="3">
+          <h3 class="text_center">THỰC ĐƠN</h3>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3">
+          <table>
+            <tr>
+              <td>
+                <p>Bàn</p>
+              </td>
+              <td>
+                <p>Món ăn</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <select name="" id="chon_ban">
+                  <option value="ban1">Bàn 1</option>
+                  <option value="ban2">Bàn 2</option>
+                  <option value="ban3">Bàn 3</option>
+                </select>
+              </td>
+              <td>
+                <select id="chon_food" name="food">
+                  <option value="bunbo">Bún bò</option>
+                  <option value="hutieu">Hủ tiếu</option>
+                  <option value="banhcanh">Bánh canh</option>
+                  <option value="phobo">Phở bò</option>
+                  <option value="nuoi">Nuôi</option>
+                  <option value="banhmi">Bánh mì thịt</option>
+                  <option value="banhcuon">Bánh cuốn</option>
+                </select>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    <div class="flex">
+      <table class="Table_Bill text_center"  style="width: 33.333%">
+        <tr>
+          <td colspan="2" style="width: 100%">Bàn 1</td>
+        </tr>
+        <tr>
+          <td  class="FIX"> 
+            <table class="bang" id="ban1" style="width: 100%">
+              <tr>
+                <td><p>Món</p></td>
+                <td><p>SL</p></td>
+                <td><p>Tiền</p></td>
+                <td><p></p></td>
+              </tr>
+            
+                <td>Tổng tiền</td>
+                <td colspan="3">0</td>
+              </tr>
+            </table>
+            <button class="in">In hóa đơn</button>
+          </td>
+        </tr>
+      </table>
+      <table class="Table_Bill text_center"  style="width: 33.333%">
+        <tr>
+          <td colspan="2" style="width: 100%">Bàn 2</td>
+        </tr>
+        <tr>
+          <td  class="FIX">
+            <table class="bang" id="ban2" style="width: 100%">
+              <tr>
+                <td><p>Món</p></td>
+                <td><p>SL</p></td>
+                <td><p>Tiền</p></td>
+                <td><p></p></td>
+              </tr>
+             
+              <tr>
+                <td>Tổng tiền</td>
+                <td colspan="3">0</td>
+              </tr>
+            </table>
+            <button class="in">In hóa đơn</button>
+          </td>
+        </tr>
+      </table>
+      <table class="Table_Bill text_center"  style="width: 33.333%">
+        <tr>
+          <td colspan="2" style="width: 100%">Bàn 3</td>
+        </tr>
+        <tr>
+          <td class="FIX">
+            <table class="bang" id="ban3" style="width: 100%">
+              <tr>
+                <td><p>Món</p></td>
+                <td><p>SL</p></td>
+                <td><p>Tiền</p></td>
+                <td><p></p></td>
+              </tr>
+             
+              <tr>
+                <td>Tổng tiền</td>
+                <td colspan="3">0</td>
+              </tr>
+            </table>
+            <button class="in">In hóa đơn</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>

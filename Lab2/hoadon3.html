@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>Hoa Don</title>
+  </head>
+  <script>
+    $(document).ready(function () {
+      var Array = JSON.parse(sessionStorage.getItem("List1"));
+      $("#Ngay").html(Array.ngay);
+      $("#NV").html(Array.nv);
+      $("#ban").html("Số " + Array.Ban);
+console.log(Array)
+      html = `  <tr class="bold">
+    <td><p>Món</p></td>
+    <td><p>SL</p></td>
+    <td><p>Tiền</p></td>
+    <td><p></p></td>
+  </tr>`;
+      Array.ListMon.map((item) => {
+        html += `
+        <tr id="${item.Loai}">
+        <td>${item.TenMon}</td>
+        <td>${item.SL}</td>
+        <td>${item.Gia * item.SL}</td>
+      </tr>`;
+      });
+      html += `<tr class="bold">
+    <td>Tổng tiền</td>
+    <td colspan="3" id="tongtien">${Array.Tong.toLocaleString()}</td>
+  </tr>`;
+
+      $("#tableRoot").html(html);
+    });
+  </script>
+  <style>
+    #root {
+      width: 50%;
+      margin: 0 auto;
+      border: 1px solid black;
+      box-sizing: border-box;
+      padding: 20px;
+    }
+    .text_center {
+      text-align: center;
+      display: block;
+    }
+    .bold {
+      font-weight: bold;
+    }
+  </style>
+  <body>
+    <div id="root">
+      <b class="text_center">Hóa đơn</b>
+      <p>Ngày hóa đơn : <span id="Ngay"></span></p>
+      <p>Nhân viên : <span id="NV"></span></p>
+      <p>Bàn: <span id="ban"></span></p>
+      <table id="tableRoot" style="width: 80%;margin: 0 auto;"></table>
+    </div>
+  </body>
+</html>

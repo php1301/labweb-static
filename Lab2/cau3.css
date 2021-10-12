@@ -1,0 +1,54 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  .text__bold {
+    font-weight: bold;
+    font-size: 14px;
+  }
+  #time {
+    width: 60%;
+  }
+  .color__blue {
+    color: rgb(0, 195, 255);
+  }
+  .Table__Choose {
+    width: 60%;
+    margin: 0 auto;
+  }
+  .Table_Bill {
+    margin-top: 20px;
+  }
+  .Table__Choose table {
+    width: 50%;
+    margin: 10px auto;
+    text-align: center;
+    height: 180px;
+  }
+  .Table__Choose table select {
+    top: -55px;
+    position: relative;
+  }
+  .Table__Choose table tr:first-child {
+    height: 30px;
+  }
+  .Table_Bill table tr td:first-child {
+    text-align: left;
+  }
+  .text_center{
+    text-align: center;
+  }
+  .flex {
+    display: flex;
+  }
+  table,
+  th,
+  td,
+  tr {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+  .textinp{
+      width: 50px;
+  }
