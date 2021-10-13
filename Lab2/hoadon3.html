@@ -10,17 +10,16 @@
   <script>
     $(document).ready(function () {
       var Array = JSON.parse(sessionStorage.getItem("List1"));
-      $("#Ngay").html(Array.ngay);
-      $("#NV").html(Array.nv);
-      $("#ban").html("Số " + Array.Ban);
-console.log(Array)
+      $("#Date").html(Array.Date);
+      $("#staffName").html(Array.staffName);
+      $("#NumTable").html("Số " + Array.NumTable);
       html = `  <tr class="bold">
     <td><p>Món</p></td>
     <td><p>SL</p></td>
     <td><p>Tiền</p></td>
     <td><p></p></td>
   </tr>`;
-      Array.ListMon.map((item) => {
+      Array.listBill.map((item) => {
         html += `
         <tr id="${item.Loai}">
         <td>${item.TenMon}</td>
@@ -30,7 +29,7 @@ console.log(Array)
       });
       html += `<tr class="bold">
     <td>Tổng tiền</td>
-    <td colspan="3" id="tongtien">${Array.Tong.toLocaleString()}</td>
+    <td colspan="3" id="tongtien">${Array.Total.toLocaleString()}</td>
   </tr>`;
 
       $("#tableRoot").html(html);
@@ -55,9 +54,9 @@ console.log(Array)
   <body>
     <div id="root">
       <b class="text_center">Hóa đơn</b>
-      <p>Ngày hóa đơn : <span id="Ngay"></span></p>
-      <p>Nhân viên : <span id="NV"></span></p>
-      <p>Bàn: <span id="ban"></span></p>
+      <p>Ngày hóa đơn : <span id="Date"></span></p>
+      <p>Nhân viên : <span id="staffName"></span></p>
+      <p>Bàn: <span id="NumTable"></span></p>
       <table id="tableRoot" style="width: 80%;margin: 0 auto;"></table>
     </div>
   </body>

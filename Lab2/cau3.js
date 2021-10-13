@@ -1,8 +1,8 @@
 $(document).ready(function () {
-  
-  var listhoadon1 = [];
-  var listhoadon2 = [];
-  var listhoadon3 = [];
+  var NumTable = "ban1";
+  var listBillOne = [];
+  var listBillTwo = [];
+  var listBillThree = [];
   var gia = {
     bunbo: 20000,
     hutieu: 18000,
@@ -20,48 +20,47 @@ $(document).ready(function () {
     camvat: 17000,
   };
   var weekday = new Array("Chủ Nhật", "Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5", "Thứ 6", "Thứ 7");
-  var Timenow = new Date($.now());
-  var Ngay = `${
-    weekday[Timenow.getDay()]
-  },${Timenow.toLocaleDateString()},${Timenow.getHours()}:${Timenow.getMinutes()}`;
-  $("#time").html(Ngay);
-  var SoBan = "ban1";
+  var timeNow = new Date($.now());
+  var dateNow = `${weekday[timeNow.getDay()]},${timeNow.toLocaleDateString()},${timeNow.getHours()}:${timeNow.getMinutes()}`;
+  $("#time").html(dateNow);
+  // xử lý lắng nghe giá trị của bàn
   $("#chon_ban").change(function () {
-    SoBan = $(this).children("option:selected").val();
+    NumTable = $(this).children("option:selected").val();
   });
+  // Xử lý thêm món ăn và lắng nghe sự kiện chọn món
   $("#chon_food").change(function () {
-    var loai = $(this).children("option:selected").val();
+    var Type = $(this).children("option:selected").val();
     var text_mon = $(this).children("option:selected").text();
-    var loailist;
-    if (SoBan === "ban1") {
-      loailist = listhoadon1;
-    } else if (SoBan === "ban2") {
-      loailist = listhoadon2;
+    var typeList;
+    var temp = { elememtTable: NumTable, Type: Type, TenMon: text_mon, SL: 1, Gia: gia[Type] };
+    var flag = true;
+    var tongtien = 0;
+    if (NumTable === "ban1") {
+      typeList = listBillOne;
+    } else if (NumTable === "ban2") {
+      typeList = listBillTwo;
     } else {
-      loailist = listhoadon3;
+      typeList = listBillThree;
     }
-    temp = { ban: SoBan, Loai: loai, TenMon: text_mon, SL: 1, Gia: gia[loai] };
-    flag = true;
-    loailist = loailist.map((item) => {
-      if (item.Loai === loai) {
+    typeList = typeList.map((item) => {
+      if (item.Type === Type) {
         item.SL += 1;
         flag = false;
       }
       return item;
     });
-    if (flag) loailist.push(temp);
+    if (flag) typeList.push(temp);
 
     html = `  <tr>
     <td><p>Món</p></td>
     <td><p>SL</p></td>
     <td><p>Tiền</p></td>
-    <td><p></p></td>
-  </tr>`;
-    var tongtien = 0;
-    loailist.map((item) => {
+    <td><p></p></td></tr>`;
+
+    typeList.map((item) => {
       tongtien += item.Gia * item.SL;
       html += `
-        <tr id="${item.Loai}">
+        <tr id="${item.Type}">
         <td>${item.TenMon}</td>
         <td><input class="textinp" type="text"value='${item.SL}'></td>
         <td><input class="textinp" type="text"value='${item.Gia * item.SL}'></td>
@@ -77,69 +76,70 @@ $(document).ready(function () {
     <td colspan="3" id="tongtien">${tongtien}</td>
   </tr>`;
 
-    if (SoBan === "ban1") {
+    if (NumTable === "ban1") {
       $("#ban1").html(html);
-      listhoadon1 = loailist;
-    } else if (SoBan === "ban2") {
+      listBillOne = typeList;
+    } else if (NumTable === "ban2") {
       $("#ban2").html(html);
-      listhoadon2 = loailist;
+      listBillTwo = typeList;
     } else {
       $("#ban3").html(html);
-      listhoadon3 = loailist;
+      listBillThree = typeList;
     }
   });
+  // Xử lý xóa Element cho từng bảng
   $(".bang").on("click", "button", function () {
-    var Loai = $(this).parent().parent().parent();
-    var Ban = $(this).parent().parent().parent().parent();
-    var SoBan = Ban.attr("id");
-    var loailist = [];
-    if (SoBan === "ban1") {
-      loailist = listhoadon1;
-    } else if (SoBan === "ban2") {
-      loailist = listhoadon2;
+    var Type = $(this).parent().parent().parent();
+    var elememtTable = $(this).parent().parent().parent().parent();
+    var NumTable = elememtTable.attr("id");
+    var typeList = [];
+    if (NumTable === "ban1") {
+      typeList = listBillOne;
+    } else if (NumTable === "ban2") {
+      typeList = listBillTwo;
     } else {
-      loailist = listhoadon3;
+      typeList = listBillThree;
     }
-    loailist.forEach((item, index) => {
-      if (item.Loai === Loai.attr("id")) {
-        var tong = Ban.children("tr").children("#tongtien");
-        tong.text(  tong.text() - item.Gia * item.SL);
-        var arryA = loailist.slice(0, index);
-        var arryB = loailist.slice(index + 1, loailist.length);
-        loailist = [...arryA, ...arryB];
+    typeList.forEach((item, index) => {
+      if (item.Type === Type.attr("id")) {
+        var Total = elememtTable.children("tr").children("#tongtien");
+        Total.text(Total.text() - item.Gia * item.SL);
+        var arryA = typeList.slice(0, index);
+        var arryB = typeList.slice(index + 1, typeList.length);
+        typeList = [...arryA, ...arryB];
       }
     });
 
-    Loai.remove();
-    if (SoBan === "ban1") {
-      listhoadon1 = loailist;
-    } else if (SoBan === "ban2") {
-      listhoadon2 = loailist;
+    Type.remove();
+    if (NumTable === "ban1") {
+      listBillOne = typeList;
+    } else if (NumTable === "ban2") {
+      listBillTwo = typeList;
     } else {
-      listhoadon3 = loailist;
+      listBillThree = typeList;
     }
   });
+  // Xử lý in hóa đơn
   $(".in").on("click", function () {
-
-    var loailist = [];
-    var SoBan = $(this).parent().children("table").attr("id");
-    var Ban = $(this).parent().children("table");
-    var tong = Ban.children("tr").children("#tongtien").text();
-    if (SoBan === "ban1") {
-      loailist = listhoadon1;
-    } else if (SoBan === "ban2") {
-      loailist = listhoadon2;
+    var typeList = [];
+    var NumTable = $(this).parent().children("table").attr("id");
+    var elememtTable = $(this).parent().children("table");
+    var Total = elememtTable.children("tr").children("#tongtien").text();
+    if (NumTable === "ban1") {
+      typeList = listBillOne;
+    } else if (NumTable === "ban2") {
+      typeList = listBillTwo;
     } else {
-      loailist = listhoadon3;
+      typeList = listBillThree;
     }
-    var tt = {
-      ngay: Ngay,
-      nv:"Nguyen Van A",
-      Ban:SoBan === "ban1"?1:SoBan === "ban2"?2:3,
-      ListMon:loailist, 
-      Tong:tong
+    var payBill = {
+      Date: dateNow,
+      staffName: "Nguyen Van A",
+      NumTable: NumTable === "ban1" ? 1 : NumTable === "ban2" ? 2 : 3,
+      listBill: typeList,
+      Total: Total,
     };
-    sessionStorage.setItem("List1", JSON.stringify(tt));
+    sessionStorage.setItem("List1", JSON.stringify(payBill));
     $(location).attr("href", "./hoadon3.html");
   });
 });

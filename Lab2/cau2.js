@@ -1,8 +1,8 @@
 ////
 
 $(document).ready(function () {
-  var listhoadon = [];
-  var gia = {
+  var listBill = [];
+  var price = {
     bunbo: 20000,
     hutieu: 18000,
     banhcanh: 17000,
@@ -27,35 +27,37 @@ $(document).ready(function () {
             title: options[i].text,
             value: options[i].value,
           };
-          listhoadon.push(temp);
+          listBill.push(temp);
         }
       }
 
       $("#tinhtien").on("click", function () {
-        var tongtien = 0;
-        var html = "";
-        var ngay = $("input[name=buoi]:checked").val();
-        listhoadon.map((item) => {
+        var totalBill = 0;
+        var Date = $("input[name=buoi]:checked").val();
+        var html = `  <tr>
+        <td>Các món đã dùng</td>
+        <td>Tiền</td>
+      </tr>`;
+        listBill.map((item) => {
           html += `<tr>
                 <td>
                 ${item.title}
                 </td>
                 <td>
-                ${(gia[item.value] * ngay).toFixed(0)}
+                ${(price[item.value] * Date).toFixed(0)}
                 </td>
                 </tr>`;
-          tongtien += gia[item.value] * ngay;
+          totalBill += price[item.value] * Date;
         });
         html += `<tr>
             <td>
             Tổng Tiền
             </td>
             <td>
-            ${tongtien.toFixed(0)} đồng
+            ${totalBill.toFixed(0)} đồng
             </td>
             </tr>`;
-        $("#hoadon").html("");
-        $("#hoadon").append(html);
+        $("#hoadon").html(html);
       });
     }
   });
