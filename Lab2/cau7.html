@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="cau7.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+
+        <form class="well form" action="#" id="contact_form">
+    <fieldset>
+    
+    <!-- Form Name -->
+    <legend>Đăng ký CV</legend>
+    
+    <!-- Text input-->
+    
+    <div class="form-group">
+      <label class="col-md-4 control-label">Họ và Tên</label>  
+      <div class="col-md-4 inputGroupContainer">
+      <div class="input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+      <input  id="name" placeholder="Họ và tên" class="form-control"  type="text">
+        </div>
+      </div>
+    </div>
+    
+    <!-- Text input-->
+    
+    <div class="form-group">
+      <label class="col-md-4 control-label" >Địa chỉ</label> 
+        <div class="col-md-4 inputGroupContainer">
+        <div class="input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+      <input id="address" placeholder="Địa chỉ" class="form-control"  type="text">
+        </div>
+      </div>
+    </div>
+    
+    <!-- Text input-->
+           
+    <div class="form-group">
+      <label class="col-md-4 control-label">Điện thoại</label>  
+        <div class="col-md-4 inputGroupContainer">
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+      <input id="phone" placeholder="(845)555-1212" class="form-control" type="text">
+        </div>
+      </div>
+    </div>
+    
+    <!-- Text input-->
+           <div class="form-group">
+      <label class="col-md-4 control-label">E-Mail</label>  
+        <div class="col-md-4 inputGroupContainer">
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+      <input id="email" placeholder="E-Mail Address" class="form-control"  type="text">
+        </div>
+      </div>
+    </div>
+    
+    
+    <!-- Text input-->
+          
+    <div class="form-group">
+      <label class="col-md-4 control-label">Nghề nghiệp</label>  
+        <div class="col-md-4 inputGroupContainer">
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+      <input id="job" placeholder="job" class="form-control" type="text">
+        </div>
+      </div>
+    </div>
+    
+    <!-- Text input-->
+     
+    <div class="form-group">
+      <label class="col-md-4 control-label">Ảnh đại diện</label>  
+        <div class="col-md-4 inputGroupContainer">
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+      <input id="avatar" placeholder="avatar" class="form-control"  type="file"        accept="image/png, image/jpeg"   onchange="localStorage.setItem('avatar', window.URL.createObjectURL(this.files[0])) ">
+      
+        </div>
+      </div>
+    </div>
+    
+
+    <!-- Text input-->
+    
+    <div style="margin-top: 10px; border: 2px solid; width: fit-content; padding: 20px;" class="form-group">
+      <label class="col-md-4 control-label">Kỹ năng</label>  
+        <div class="col-md-4 inputGroupContainer">
+        <div style="display: flex;" class="input-group">
+            <p style="margin-right: 20px;">Tên kỹ năng</p>
+            <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+      <input id="skill-name" placeholder="NodeJS" class="form-control"  type="text">
+        </div>
+        <div style="display: flex;" class="input-group">
+            <p style="margin-right: 50px;">Mức độ</p>
+            <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+            <input type="range" step="10" min="0" max="100" value="50" id="muc-do" oninput="this.nextElementSibling.value = this.value">
+            <output style="margin-top: 10px; margin-left: 10px;">50</output>
+        </div>
+        <button class="add-skill" type="button" style="margin-right: 50px;">Thêm</button>
+        <div style="margin-top: 10px; border: 2px solid; width: fit-content; padding: 20px;" class="skills-list">
+          
+        </div>
+        </div>
+    </div>
+    </div>
+        
+    <!-- Button -->
+    <div class="form-group">
+      <label class="col-md-4 control-label"></label>
+      <div class="col-md-4">
+        <button type="submit" class="btn btn-warning" >Đăng ký <span class="glyphicon glyphicon-send"></span></button>
+      </div>
+    </div>
+    
+    </fieldset>
+    </form>
+    </div>
+        </div><!-- /.container -->
+        <div class="info-cv" style="  width: 50%; margin-top: 30px; transform: translateX(50%);">
+            <img class="info-avatar" src="" width="50%" height="50%" alt=" "/>
+        </div>
+</body>
+</html>

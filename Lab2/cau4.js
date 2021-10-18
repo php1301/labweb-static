@@ -1,4 +1,5 @@
 $(document).ready(function () {
+  
   var ListCho = [];
   $("#cho_ngoi").change(function () {
     var cho = $(this).children("option:selected");
