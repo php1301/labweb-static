@@ -35,31 +35,42 @@
     </script>
   </head>
   <style>
-    table,
-    td,
-    tr {
-      border: 1px solid black;
-      border-collapse: collapse;
+    .delete{
+      border-radius: 10px;
+      padding: 5px 20px;
+    }
+    .cangiua{
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      padding: 5px 0;
+    }
+    tr{
+      height: 40px;
+    }
+    th{
+      padding: 5px 30px;
+    }
+    .SL, .giatri{
+      height: 30px;
     }
   </style>
-  <body>
-    <table>
-      <tr>
-        <td>Sản phẩm</td>
-        <td>Số lượng</td>
-        <td>Đơn giá</td>
-        <td>Thành tiền</td>
-        <td>Chức năng</td>
+  <body >
+    <table border style="background-color:#FFEDCA; font-weight: bold; ">
+      <tr style="text-align: center;">
+        <th>Sản phẩm</th>
+        <th>Số lượng</th>
+        <th>Đơn giá</th>
+        <th>Thành tiền</th>
+        <th>Chức năng</th>
       </tr>
       <tr>
         <td>Iphone 11 Pro Max 64G</td>
         <td><input type="number" value="2" name="" class="SL" /></td>
         <td><input type="text" value="31000000" name="" class="giatri" /></td>
         <td class="thanhtien"></td>
-        <td>
-          <p>
+        <td class="cangiua">
             <button class="delete">Xóa</button>
-          </p>
         </td>
       </tr>
       <tr>
@@ -67,10 +78,8 @@
         <td><input type="number" value="1" name="" class="SL" /></td>
         <td><input type="text" value="16000000" name="" class="giatri" /></td>
         <td class="thanhtien"></td>
-        <td>
-          <p>
-            <button class="delete">Xóa</button>
-          </p>
+        <td class="cangiua">
+            <button   class="delete">Xóa</button>
         </td>
       </tr>
       <tr>

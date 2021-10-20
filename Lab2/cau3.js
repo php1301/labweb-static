@@ -73,7 +73,7 @@ $(document).ready(function () {
     });
     html += `<tr>
     <td>Tổng tiền</td>
-    <td colspan="3" id="tongtien">${tongtien}</td>
+    <td colspan="3" id="tongtien">${tongtien} đ </td>
   </tr>`;
 
     if (NumTable === "ban1") {
@@ -134,7 +134,7 @@ $(document).ready(function () {
     }
     var payBill = {
       Date: dateNow,
-      staffName: "Nguyen Van A",
+      staffName: "Nguyễn Văn A",
       NumTable: NumTable === "ban1" ? 1 : NumTable === "ban2" ? 2 : 3,
       listBill: typeList,
       Total: Total,
