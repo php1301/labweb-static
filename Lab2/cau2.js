@@ -54,7 +54,7 @@ $(document).ready(function () {
             Tổng Tiền
             </td>
             <td>
-            ${totalBill.toFixed(0)} đồng
+            ${totalBill.toFixed(0)} vnđ
             </td>
             </tr>`;
         $("#hoadon").html(html);

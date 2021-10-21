@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        var thongtin = JSON.parse(sessionStorage.getItem("dulieu"));
+        var tongtientreem = (thongtin.tourval * thongtin.treem * 1000000) / 2;
+        var tongtiennglon = (thongtin.tourval * thongtin.nguoilon * 1000000);
+        $(".ngaydangki").html(thongtin.ngaydangki);
+        $(".hotennv").html(thongtin.hotennv);
+        $(".hotenkhach").html(thongtin.hoten);
+        $(".diachi").html(thongtin.diachi);
+        $(".dienthoai").html(thongtin.dienthoai);
+        $(".tour").html(thongtin.tour);
+        $(".ghichu").html(thongtin.ghichu);
+        $(".thanhtientreem").html(tongtientreem);
+        $(".thanhtiennglon").html(tongtiennglon);
+        $(".tongtien").html(tongtientreem + tongtiennglon);
+        $(".slgtreem").html(thongtin.treem);
+        $(".slgnglon").html(thongtin.nguoilon);
+        $(".dgiatreem").html((thongtin.tourval * 1000000) / 2);
+        $(".dgianglon").html(thongtin.nguoilon * 1000000);
+      });
+    </script>
+    <title>Thông tin đăng kí</title>
+    <style>
+        #cot{
+            padding: 0 10px;
+        }
+    </style>
+  </head>
+  <body>
+    <div
+      style="
+        width: 550px;
+        margin: 60px auto;
+        border: 1px solid black;
+        position: relative;
+      "
+    >
+      <div style="text-align: center"><h2>Thông tin đăng kí</h2></div>
+      <div style="width: 500px; margin: 0 auto; font-size: 20px">
+        <table style="width: 100%;">
+          <tr>
+            <td style="width: 30%">Ngày đăng kí:</td>
+            <td class="ngaydangki" style="width: 60%;"></td>
+          </tr>
+          <tr>
+            <td>Nhân viên</td>
+            <td class="hotennv"></td>
+          </tr>
+          <tr>
+            <td>Họ tên khách</td>
+            <td class="hotenkhach"></td>
+          </tr>
+          <tr>
+            <td>Địa chỉ</td>
+            <td class="diachi"></td>
+          </tr>
+          <tr>
+            <td>Tour</td>
+            <td class="tour"></td>
+          </tr>
+          <tr>
+            <td>Ghi chú</td>
+            <td class="ghichu"></td>
+          </tr>
+        </table>
+        <br>
+          <tr>
+            <td colspan="3">
+              <table style="width: 100%;">
+                <div>Số lượng khách đoàn</div>
+                <tr >
+                  <th id="cot" ></th>
+                  <th id="cot" >SL</th>
+                  <th id="cot" >Đơn giá</th>
+                  <th id="cot" >Thành Tiền</th>
+                </tr>
+                <tr style="text-align: center;">
+                  <td>Người lớn</td>
+                  <td class="slgnglon"></td>
+                  <td class="dgianglon"></td>
+                  <td class="thanhtiennglon"></td>
+                </tr>
+                <tr style="text-align: center;">
+                  <td>Trẻ em</td>
+                  <td class="slgtreem"></td>
+                  <td class="dgiatreem"></td>
+                  <td class="thanhtientreem"></td>
+                </tr>
+                <tr style="text-align: center;" >
+                  <td colspan="2"><h3>Tổng tiền</h3></td>
+                  <td colspan="2" class="tongtien"></td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        
+      </div>
+    </div>
+  </body>
+</html>
