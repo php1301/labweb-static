@@ -17,6 +17,7 @@
       $(document).ready(function () {
         var array = JSON.parse(sessionStorage.getItem("dulieu"));
         var html = "";
+        $('.anh').html(array.anh);
         array.listKyNang.map(
           (item) =>
             (html += `
@@ -64,6 +65,7 @@
       border-radius: 10px;
       background-color: rgba(202, 202, 202, 0.473);
     }
+   
     .container {  
      position:relative  ;
       width: 330px;
@@ -83,7 +85,8 @@
       border-top: 1px solid rgba(202, 201, 201, 0.815);
       font-weight: bold;
     }
-    .img{
+    .anh img{
+   
         width:50%;
         position:absolute;
         left: 50%;
@@ -109,8 +112,8 @@
   </style>
   <body>
     <div class="container">
-      <div>
-        <img src="https://i.vdoc.vn/data/image/2020/06/12/bo-hinh-nen-meo-than-tai-11.png" class="img" alt="" />
+      <div class="anh">
+   
       </div>
 
       <div class="info">
