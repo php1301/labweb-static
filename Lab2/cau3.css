@@ -19,12 +19,15 @@
   }
   .Table_Bill {
     margin-top: 20px;
+    height: fit-content;
   }
   .Table__Choose table {
     width: 50%;
     margin: 10px auto;
     text-align: center;
     height: 180px;
+    background-color:#94acf3 ;
+    color:#f8f856 ;
   }
   .Table__Choose table select {
     top: -55px;
@@ -43,7 +46,6 @@
     display: flex;
   }
   table,
-  th,
   td,
   tr {
     border: 1px solid black;
@@ -52,3 +54,13 @@
   .textinp{
       width: 50px;
   }
+  .FIX{
+    padding:0 5px 5px 5px;
+  }
+  .in{
+    margin: 5px;
+  }
+  .Table_Bill tr, .Table_Bill table tr{
+    height: 30px;
+  }
+

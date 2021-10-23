@@ -55,7 +55,7 @@ $(document).ready(function () {
     <td><p>Món</p></td>
     <td><p>SL</p></td>
     <td><p>Tiền</p></td>
-    <td><p></p></td></tr>`;
+    <td class="textinp"><p></p></td></tr>`;
 
     typeList.map((item) => {
       tongtien += item.Gia * item.SL;
